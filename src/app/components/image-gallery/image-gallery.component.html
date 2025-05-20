@@ -1,21 +1,13 @@
-<div class="gallery-container">
-<h2>Galeria de imagenes</h2>
-<div *ngIf="isLoanding" class="loading">
-  <p>Cargando imágenes...</p>
-</div>
-
-<div *ngIf="error" class="error">
-  <p>{{ error }}</p>
-  <button (click)="loadImages()">Reintentar</button>
-</div>
-
-<div class="gallery-grid" *ngIf="!isLoanding && !error">
-  <div class="image-card" *ngFor="let image of images" (click)="showImageDetails(image.id)">
-    <img [src]="'https://picsum.photos/id/' + image.id + '/300/200'" [alt]="image.author">
-    <div class="image-info">
-      <h3>{{ image.author }}</h3>
-      <p>Ancho: {{ image.width }}px</p>
-      <p>Alto: {{ image.height }}px</p>
+<div class="galeria-container">
+  <h1>Personajes de Rick and Morty</h1>
+  <div class="grid">
+    <div class="card" *ngFor="let personaje of personajes">
+      <img [src]="personaje.image" [alt]="personaje.name" />
+      <div class="info">
+        <h3>{{ personaje.name }}</h3>
+        <p><strong>Estado:</strong> {{ personaje.status }}</p>
+        <p><strong>Especie:</strong> {{ personaje.species }}</p>
+      </div>
     </div>
   </div>
 </div>
